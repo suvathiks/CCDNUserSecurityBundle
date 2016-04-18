@@ -1,5 +1,5 @@
 {
-    "name": "codeconsortium/ccdn-user-security-bundle",
+    "name": "forkedcodeconsortium/ccdn-user-security-bundle",
     "description": "CCDN User Security Bundle",
     "keywords": ["ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
     "homepage": "http://github.com/codeconsortium/CCDNUserSecurityBundle",
