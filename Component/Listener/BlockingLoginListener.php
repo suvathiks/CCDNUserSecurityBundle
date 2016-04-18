@@ -15,6 +15,7 @@ namespace CCDNUser\SecurityBundle\Component\Listener;
 
 use CCDNUser\SecurityBundle\Component\Authorisation\SecurityManagerInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
  *
@@ -37,20 +38,13 @@ class BlockingLoginListener
     protected $securityManager;
 
     /**
-     * @var AccessDeniedExceptionFactoryInterface
-     */
-    protected $exceptionFactory;
-
-    /**
      *
      * @access public
      * @param \CCDNUser\SecurityBundle\Component\Authorisation\SecurityManagerInterface         $securityManager
-     * @param \CCDNUser\SecurityBundle\Component\Listener\AccessDeniedExceptionFactoryInterface $exceptionFactory
      */
-    public function __construct(SecurityManagerInterface $securityManager, AccessDeniedExceptionFactoryInterface $exceptionFactory)
+    public function __construct(SecurityManagerInterface $securityManager)
     {
         $this->securityManager = $securityManager;
-        $this->exceptionFactory = $exceptionFactory;
     }
 
     /**
@@ -76,8 +70,8 @@ class BlockingLoginListener
 
         if ($result == $securityManager::ACCESS_DENIED_BLOCK) {
             $event->stopPropagation();
-
-            throw $this->exceptionFactory->createAccessDeniedException();
+            
+			throw new AccessDeniedHttpException('flood control - login blocked.');
         }
     }
 }

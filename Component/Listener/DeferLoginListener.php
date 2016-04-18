@@ -62,7 +62,7 @@ class DeferLoginListener
                 $this->forceAccountRecovery['route_recover_account']['name'],
                 $this->forceAccountRecovery['route_recover_account']['params']
             );
-
+            
             $event->setResponse(new RedirectResponse($redirectUrl));
         }
     }
