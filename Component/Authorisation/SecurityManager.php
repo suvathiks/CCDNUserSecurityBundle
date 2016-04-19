@@ -83,12 +83,12 @@ class SecurityManager implements SecurityManagerInterface
     public function vote()
     {
         $request = $this->requestStack->getMasterRequest();
-        if ($this->blockPages['enabled'] && $request) {
+        if ($request) {
             $route = $request->get('_route');
             $ipAddress = $request->getClientIp();
 
             $this->blockPages['routes'][] = $this->routeLogin['name'];
-            if ($this->blockPages['enabled'] && in_array($route, $this->blockPages['routes'])) {
+            if (in_array($route, $this->blockPages['routes'])) {
                 // Get number of failed login attempts.
                 $attempts = $this->loginFailureTracker->getAttempts($ipAddress, $this->blockPages['duration_in_minutes']);
 

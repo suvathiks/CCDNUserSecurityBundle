@@ -53,7 +53,6 @@ class Configuration implements ConfigurationInterface
 
         // Configuration stuff.
         $this->addLoginShieldSection($rootNode);
-        $this->addRouteRefererSection($rootNode);
 
         return $treeBuilder;
     }
@@ -219,27 +218,6 @@ class Configuration implements ConfigurationInterface
         return $this;
     }
 
-     /**
-      *
-      * @access private
-      * @param  \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
-      * @return \CCDNUser\SecurityBundle\DependencyInjection\Configuration
-      */
-     private function addRouteRefererSection(ArrayNodeDefinition $node)
-     {
-         $node
-             ->children()
-                 ->arrayNode('route_referer')
-                    ->canBeUnset()
-                     ->ignoreExtraKeys()
-                    // we just skip that array!
-                 ->end()
-             ->end()
-         ;
-
-         return $this;
-     }
-
     /**
      *
      * @access private
@@ -374,17 +352,11 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('route_login')
                             ->children()
                                 ->scalarNode('name')->end()
-                                ->scalarNode('path')->end()
-                                ->arrayNode('params')
-                                    ->prototype('scalar')
-                                    ->end()
-                                ->end()
                             ->end()
                         ->end()
 
                         ->arrayNode('block_pages')
                             ->children()
-                                ->booleanNode('enabled')->defaultFalse()->end()
                                 ->scalarNode('after_attempts')->defaultValue(15)->end()
                                 ->scalarNode('duration_in_minutes')->defaultValue(10)->end()
                                 ->arrayNode('routes')
