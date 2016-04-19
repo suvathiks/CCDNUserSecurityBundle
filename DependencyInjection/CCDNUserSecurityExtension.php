@@ -163,7 +163,6 @@ class CCDNUserSecurityExtension extends Extension
         $container->setParameter('ccdn_user_security.component.authorisation.security_manager.class', $config['component']['authorisation']['security_manager']['class']);
 
         $container->setParameter('ccdn_user_security.component.listener.blocking_login_listener.class', $config['component']['listener']['blocking_login_listener']['class']);
-        $container->setParameter('ccdn_user_security.component.listener.defer_login_listener.class', $config['component']['listener']['defer_login_listener']['class']);
 
         return $this;
     }
@@ -178,7 +177,6 @@ class CCDNUserSecurityExtension extends Extension
     private function getLoginShieldSection(ContainerBuilder $container, $config)
     {
         $container->setParameter('ccdn_user_security.login_shield.route_login', $config['login_shield']['route_login']);
-        $container->setParameter('ccdn_user_security.login_shield.force_account_recovery', $config['login_shield']['force_account_recovery']);
         $container->setParameter('ccdn_user_security.login_shield.block_pages', $config['login_shield']['block_pages']);
 
         return $this;

@@ -15,17 +15,6 @@ ccdn_user_security:
         route_login:
             name:                  fos_user_security_login
             params:                []
-        force_account_recovery:    # Specify all routes to block after attempt limit is reached, and account recovery route to force browser redirect.
-            enabled:               true
-            after_attempts:        2
-            duration_in_minutes:   1
-            route_recover_account:
-                name:              fos_user_resetting_request
-                params:            []
-            routes:
-                - fos_user_security_login
-                - fos_user_security_check
-                - fos_user_security_logout
         block_pages:               # Specify all routes to block after attempt limit is reached.
             enabled:               true
             after_attempts:        4
@@ -42,9 +31,7 @@ ccdn_user_security:
                 - fos_user_resetting_send_email
 ```
 
-Please note that for either 'force_account_recovery' or 'block_pages' to function, you need to specify the 'route_login' config, also you must specify the route for the account recovery page.
-
-Once you have enabled either 'force_account_recovery' or 'block_pages', you must specify the routes that you want blocked once the number of attempts has been reached.
+Once you have enabled 'block_pages', you must specify the routes that you want blocked once the number of attempts has been reached.
 
 In order that the forced account recovery process works, the limit must be set lower than the block_pages process, otherwise page blocking will supersede this and prevent it from working.
 
