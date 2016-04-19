@@ -10,7 +10,7 @@ Propel/om/*
 Propel/map/*
 composer.lock
 phpunit.xml
-Tests/autoload.php
+Tests/*
 catalog.xml
 
 *.log
