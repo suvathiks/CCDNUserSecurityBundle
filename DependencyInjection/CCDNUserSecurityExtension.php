@@ -13,7 +13,6 @@
 
 namespace CCDNUser\SecurityBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
@@ -69,7 +68,6 @@ class CCDNUserSecurityExtension extends Extension
 
         // Load Service definitions.
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-//        $loader->load('services.yml');
         $loader->load('services/components.yml');
         $loader->load('services/model-gateway.yml');
         $loader->load('services/model-repository.yml');

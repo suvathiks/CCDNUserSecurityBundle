@@ -52,7 +52,7 @@ abstract class BaseGateway
      */
     public function __construct(ObjectManager $em, $entityClass)
     {
-        if (null == $entityClass) {
+        if (null === $entityClass) {
             throw new \Exception('Entity class for gateway must be specified!');
         }
 

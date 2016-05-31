@@ -47,7 +47,7 @@ class SessionGateway extends BaseGateway implements GatewayInterface
      */
     public function findSession(QueryBuilder $qb = null, $parameters = null)
     {
-        if (null == $qb) {
+        if (null === $qb) {
             $qb = $this->createSelectQuery();
         }
 
@@ -63,7 +63,7 @@ class SessionGateway extends BaseGateway implements GatewayInterface
      */
     public function findSessions(QueryBuilder $qb = null, $parameters = null)
     {
-        if (null == $qb) {
+        if (null === $qb) {
             $qb = $this->createSelectQuery();
         }
 
@@ -79,11 +79,11 @@ class SessionGateway extends BaseGateway implements GatewayInterface
      */
     public function countSessions(QueryBuilder $qb = null, $parameters = null)
     {
-        if (null == $qb) {
+        if (null === $qb) {
             $qb = $this->createCountQuery();
         }
 
-        if (null == $parameters) {
+        if (null === $parameters) {
             $parameters = array();
         }
 
@@ -105,11 +105,11 @@ class SessionGateway extends BaseGateway implements GatewayInterface
      */
     public function createCountQuery($column = null, Array $aliases = null)
     {
-        if (null == $column) {
+        if (null === $column) {
             $column = 'count(' . $this->queryAlias . '.id)';
         }
 
-        if (null == $aliases || ! is_array($aliases)) {
+        if (null === $aliases || ! is_array($aliases)) {
             $aliases = array($column);
         }
 
@@ -128,7 +128,7 @@ class SessionGateway extends BaseGateway implements GatewayInterface
      */
     public function createSelectQuery(Array $aliases = null)
     {
-        if (null == $aliases || ! is_array($aliases)) {
+        if (null === $aliases || ! is_array($aliases)) {
             $aliases = array($this->queryAlias);
         }
 
