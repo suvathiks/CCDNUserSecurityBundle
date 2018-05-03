@@ -12,18 +12,8 @@
             "homepage": "http://www.reecefowell.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": ">5.5.0 || ^7.0",
-        "symfony/symfony": "~3.0 || ~4.0",
-        "doctrine/orm": "^2.5",
-        "doctrine/doctrine-bundle": "^1.6"
-    },
-    "require-dev": {
-        "symfony/swiftmailer-bundle": "^2.3",
-        "symfony/monolog-bundle": "~2.8",
-        "raulfraile/ladybug-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "php": "^7.0"
     },
     "autoload": {
         "psr-0": { "CCDNUser\\SecurityBundle": "" }
